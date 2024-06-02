@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Baseline Curve Generator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- <h1>Baseline Curve Generator</h1> -->
+    <div class="container">
+        <div class="selectedData">
+            <div class="upload">
+                <label for="uploadButton" class="uploadButton" id="uploadButton_label">Choose File..</label>
+                <input type="file" id="uploadButton" class="uploadButton" name="uploadButton">
+            </div>
+            <div class="selector">
+                <label for="selectedData">Select Data:</label>
+                <select id="selectedData">
+                    <option value="">NA</option>
+                </select>
+            </div>
+            <button id="exportButton" type="button" class="exportButton disabled">Export</button>
+        </div>
+        <div class="sliders">
+            <div class="slider">
+                <label for="windowSize">Window Size</label>
+                <input type="range" id="windowSize" name="windowSize"
+                       min="0" max="8" step="1" value="3">
+                <span id="windowSize_label"></span>
+            </div>
+            <div class="slider">
+                <label for="smoothFactor">Smooth Factor</label>
+                <input type="range" id="smoothFactor" name="smoothFactor"
+                       min="1" max="8" step="1" value="3">
+                <span id="smoothFactor_label"></span>
+            </div>
+            <div class="slider">
+                <label for="verticalShift">Vertical Shift</label>
+                <input type="range" id="verticalShift" name="verticalShift"
+                       min="-0.5" max="1" step="0.01" value="0">
+                <span id="verticalShift_label"></span>
+            </div>
+            <div class="startEndSame">
+                <label for="startEndSame">Keep the start & end points same as original</label>
+                <input class="startEndSame" type="checkbox" id="startEndSame" checked="true"/>
+            </div>
+        </div>
+
+        <canvas id="chartCanvas" height="500"></canvas>
+        <label class="footer"><strong>Baseline Curve Generator</strong> | Saikat 2023</label>
+        
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
