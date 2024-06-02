@@ -24,8 +24,6 @@ def upload():
     for col in upload_file.columns.tolist():
         data_map[col] = upload_file[col].dropna().values.tolist()
     print(list(data_map.keys()))
-    # options = [{'value': str(val), 'text': str(val)} for val in list(data_map.keys())]
-    # print(options)
     return jsonify(
         {
             'options':list(data_map.keys())
@@ -36,19 +34,10 @@ def upload():
 def updateChart():
     response = request.get_json()
     selected_data = response["selected_data"]
-    # uploaded = response["uploaded"]
     window_size = response["window_size"]
     smooth_factor = response["smooth_factor"]
     vertical_shift = response["vertical_shift"]
     start_end_same = response["start_end_same"]
-
-    # if uploaded == 0:
-    #     selected_data = response["selected_data"]
-    #     original_data = data_map[selected_data]
-    # elif uploaded == 1:
-    #     selected_data = request.files['selected_data']
-    #     df = pd.read_excel(selected_data)
-    #     original_data = df.iloc[:,0].values.tolist()
     
     original_data = data_map[selected_data]
 
